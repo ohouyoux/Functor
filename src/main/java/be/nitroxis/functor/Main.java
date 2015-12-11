@@ -17,13 +17,7 @@ public class Main {
      */
     
     // A unary function which can be used to get the length of a string
-    public static UnaryFunction<String, Integer> length = new UnaryFunction<String, Integer>() {
-        
-        @Override
-        public Integer evaluate(final String s) {
-            return s.length();
-        }
-    };
+    public static UnaryFunction<String, Integer> length = s -> s.length();
     
     /*
      * To illustrate lazy error handling this program reuses a function designed to operate on strings, so that it 
@@ -41,14 +35,7 @@ public class Main {
      */
     
     public static void main(final String[] args) {
-        Thrower<String, IOException> readLine = new Thrower<String, IOException>() {
-            
-            @Override
-            public String evaluate() throws IOException {
-                return new BufferedReader(new InputStreamReader(System.in)).readLine();
-            }
-        };
-
+        Thrower<String, IOException> readLine = () -> new BufferedReader(new InputStreamReader(System.in)).readLine();
         UnaryFunction<Thrower<String, IOException>, Thrower<Integer, IOException>> f = Throwers.map(length);
         System.out.println(ExceptionHandler.evaluate(f.evaluate(readLine)));
     }
