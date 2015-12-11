@@ -7,6 +7,7 @@ package be.nitroxis.functor;
  * @param <T> the type of value that this {@code Thrower} returns
  * @param <E> the type of checked {@code Exception} that this {@code Thrower} may throw
  */
+@FunctionalInterface
 public interface Thrower<T, E extends Exception> extends Functor {
  
     /**

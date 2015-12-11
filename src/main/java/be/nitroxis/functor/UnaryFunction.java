@@ -7,6 +7,7 @@ package be.nitroxis.functor;
  * @param <A> the type of argument
  * @param <T> the type of value that this {@code UnaryFunction} returns
  */
+@FunctionalInterface
 public interface UnaryFunction<A, T> extends Functor {
 
     /**

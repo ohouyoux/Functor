@@ -6,6 +6,7 @@ package be.nitroxis.functor;
  * @author Olivier Houyoux (olivier.houyoux@gmail.com)
  * @param<T> the type of value that this {@code Function} returns
  */
+@FunctionalInterface
 public interface Function<T> extends Functor {
     
     /**
