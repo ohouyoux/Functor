@@ -20,22 +20,7 @@ public final class Throwers {
     public static <A, T, E extends Exception> UnaryFunction<Thrower<A, E>, Thrower<T, E>>
         map(final UnaryFunction<A, T> f) {
 
-        // TODO replace this anonymous class with lambda expression
-        return new UnaryFunction<Thrower<A, E>, Thrower<T, E>>() {
-            
-            @Override
-            public Thrower<T, E> evaluate(final Thrower<A, E> a) {
-
-                // TODO replace this anonymous class with lambda expression
-                return new Thrower<T, E>() {
-                    
-                    @Override
-                    public T evaluate() throws E {
-                        return f.evaluate(a.evaluate());
-                    }
-                };
-            }
-        };
+        return a -> () -> f.evaluate(a.evaluate());
     }
     
     private Throwers() {
