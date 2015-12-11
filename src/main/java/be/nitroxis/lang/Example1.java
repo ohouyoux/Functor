@@ -9,7 +9,7 @@ import java.io.StringReader;
  *
  * @author Olivier Houyoux (olivier.houyoux@gmail.com)
  */
-public class Main {
+public class Example1 {
 
     /*
      * This program reuses a function designed to operate on strings, so that it operates on operations that result in
