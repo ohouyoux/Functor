@@ -1,7 +1,9 @@
 package be.nitroxis.lang;
 
 /**
- * A utility class for {@code Thrower} {@code Function}s.
+ * A utility class for {@code Thrower} {@code Function}s. The {@code unit} and {@code bind} methods make {@code Thrower}
+ * a monad. Note that we can only compose in this manner {@code Thrower}s which are throwing the same {@code Exception}
+ * type.
  *
  * @author Olivier Houyoux (olivier.houyoux@gmail.com)
  * @see https://en.wikipedia.org/wiki/Monad_(functional_programming)
@@ -39,7 +41,6 @@ public final class Throwers {
     /**
      * Applies a {@code UnaryFunction} {@code f} to the contents of the {@code Thrower} {@code a}, but not suffering any
      * consequences until later, whenever we decide to call {@code evaluate} on the result of bind.
-     *
      *
      * @param <A> the type of argument passed to the {@code UnaryFunction}
      * @param <B> the type of argument evaluated by the {@code Thrower} to be bound
