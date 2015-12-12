@@ -46,8 +46,10 @@ public final class Throwers {
      * @param <B> the type of argument evaluated by the {@code Thrower} to be bound
      * @param <E> the type of {@code Exception} that the created {@code Thrower} may throw
      * @param a the {@code Thrower} to be bound
-     * @param f the {@code UnaryFunction} to apply to the results of {@code a}
+     * @param f the {@code UnaryFunction} to apply to the results of {@code a} (Kleisli Arrow for the {@code Thrower} 
+     *     monad)
      * @return a new {@code Thrower} that applies {@code f} to the results of {@code a}
+     * @see http://blog.sigfpe.com/2006/06/monads-kleisli-arrows-comonads-and.html?showComment=1162433100000
      */
     public static <A, B, E extends Exception> Thrower<B, E> bind(
         final Thrower<A, E> a,
