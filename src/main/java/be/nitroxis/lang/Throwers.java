@@ -1,5 +1,7 @@
 package be.nitroxis.lang;
 
+import java.util.List;
+
 /**
  * A utility class for {@code Thrower} {@code Function}s. The {@code unit} and {@code bind} methods make {@code Thrower}
  * a monad. Note that we can only compose in this manner {@code Thrower}s which are throwing the same {@code Exception}
@@ -46,7 +48,7 @@ public final class Throwers {
      * @param <B> the type of argument evaluated by the {@code Thrower} to be bound
      * @param <E> the type of {@code Exception} that the created {@code Thrower} may throw
      * @param a the {@code Thrower} to be bound
-     * @param f the {@code UnaryFunction} to apply to the results of {@code a} (Kleisli Arrow for the {@code Thrower} 
+     * @param f the {@code UnaryFunction} to apply to the results of {@code a} (Kleisli Arrow for the {@code Thrower}
      *     monad - see PartialArrow for an easy way to create them)
      * @return a new {@code Thrower} that applies {@code f} to the results of {@code a}
      * @see http://blog.sigfpe.com/2006/06/monads-kleisli-arrows-comonads-and.html?showComment=1162433100000
@@ -57,6 +59,19 @@ public final class Throwers {
         final UnaryFunction<A, Thrower<B, E>> f) {
 
         return () -> f.evaluate(a.evaluate()).evaluate();
+    }
+
+    /**
+     * Collapses an entire {@code List} of {@code Thrower}s into a single {@code Thrower} that returns all their results
+     * in one {@code List}.
+     *
+     * @param <A> the type of argument passed to {@code throwers}
+     * @param <E> the type of {@code Exception} that any {@code Thrower} in {@code throwers} may throw
+     * @param throwers the {@code Thrower}s to be collapsed
+     * @return the {@code Thrower} that returns {@code throwers} results in one {@code List}
+     */
+    public static <A, E extends Exception> Thrower<List<A>, E> sequence(final List<Thrower<A, E>> throwers) {
+        throw new UnsupportedOperationException("Not implemented yet");
     }
 
     private Throwers() {
