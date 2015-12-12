@@ -1,4 +1,4 @@
-# Lazy-Error-Handling
+# Lazy Error Handling
 Playing with Functors, Monads ... to stop using try / catch and throws ...
 
 [Thrower functor](https://apocalisp.wordpress.com/2008/05/16/thrower-functor/)
