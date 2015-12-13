@@ -38,7 +38,7 @@ public class Example2 {
             conn.connect();
             InputStream is = conn.getInputStream();
             
-            try (BufferedReader reader = new BufferedReader(new InputStreamReader(is))) {
+            try (final BufferedReader reader = new BufferedReader(new InputStreamReader(is))) {
                 String line;
                 
                 while ((line = reader.readLine()) != null) {
@@ -86,7 +86,7 @@ public class Example2 {
     public static void main(final String[] args) {
         JarURLConnector c = new JarURLConnector();
         NetTalker<String> n = new DataReader();
-        Thrower<URLConnection, IOException> a = c.evaluate("jar:file:./src/main/resources/data.jar!/data.txt");
+        Thrower<URLConnection, IOException> a = c.evaluate("jar:file:./src/test/resources/data.jar!/data.txt");
         Thrower<String, IOException> t = Throwers.bind(a, n);
         
         // You can take t and bind it to a PartialArrow that takes a String and writes it to a file for example, 
