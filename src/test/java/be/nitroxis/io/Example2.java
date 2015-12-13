@@ -30,7 +30,7 @@ public class Example2 {
 
     }
 
-    public static class DataReader extends NetTalker<String> {
+    public class DataReader extends NetTalker<String> {
 
         @Override
         protected String doEvaluate(final URLConnection conn) throws IOException {
@@ -50,7 +50,7 @@ public class Example2 {
         }
     }
 
-    public static class JarURLConnector extends URLConnector<String> {
+    public class JarURLConnector extends URLConnector<String> {
 
         @Override
         protected URLConnection doEvaluate(final String s) throws IOException {
@@ -84,8 +84,9 @@ public class Example2 {
     }
 
     public static void main(final String[] args) {
-        JarURLConnector c = new JarURLConnector();
-        NetTalker<String> n = new DataReader();
+        Example2 ex = new Example2();
+        URLConnector c = ex.new JarURLConnector();
+        NetTalker<String> n = ex.new DataReader();
         Thrower<URLConnection, IOException> a = c.evaluate("jar:file:./src/test/resources/data.jar!/data.txt");
         Thrower<String, IOException> t = Throwers.bind(a, n);
         
