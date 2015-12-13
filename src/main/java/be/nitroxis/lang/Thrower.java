@@ -10,11 +10,11 @@ package be.nitroxis.lang;
 @FunctionalInterface
 public interface Thrower<T, E extends Exception> extends Functor {
  
-    /**
-     * Evaluates this {@code Thrower}.
-     * 
-     * @return the evaluation result
-     * @throws E if the evaluation process fails
-     */
-    T evaluate() throws E;
+  /**
+   * Evaluates this {@code Thrower}.
+   *
+   * @return the evaluation result
+   * @throws E if the evaluation process fails
+   */
+  T evaluate() throws E;
 }

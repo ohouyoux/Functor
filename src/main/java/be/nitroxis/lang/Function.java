@@ -8,11 +8,11 @@ package be.nitroxis.lang;
  */
 @FunctionalInterface
 public interface Function<T> extends Functor {
-    
-    /**
-     * Evaluates this {@code Function}.
-     * 
-     * @return the evaluation result
-     */
-    T evaluate();
+
+  /**
+   * Evaluates this {@code Function}.
+   *
+   * @return the evaluation result
+   */
+  T evaluate();
 }

@@ -10,11 +10,11 @@ package be.nitroxis.lang;
 @FunctionalInterface
 public interface UnaryFunction<A, T> extends Functor {
 
-    /**
-     * Evaluates this {@code UnaryFunction}.
-     * 
-     * @param argument the argument passed to this {@code UnaryFunction}
-     * @return the evaluation result
-     */
-    T evaluate(A argument);
+  /**
+   * Evaluates this {@code UnaryFunction}.
+   *
+   * @param arg the argument passed to this {@code UnaryFunction}
+   * @return the evaluation result
+   */
+  T evaluate(A arg);
 }
